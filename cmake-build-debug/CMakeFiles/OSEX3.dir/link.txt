@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/OSEX3.dir/main.cpp.o  -o OSEX3 
