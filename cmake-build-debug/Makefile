@@ -48,10 +48,10 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/marynar/Documents/Os_ex3
+CMAKE_SOURCE_DIR = /cs/usr/ofir.tziter/CLionProjects/OSEX3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ MapReduceFramework.cpp.s:
 	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.s
 .PHONY : MapReduceFramework.cpp.s
 
+SampleClient.o: SampleClient.cpp.o
+
+.PHONY : SampleClient.o
+
+# target to build an object file
+SampleClient.cpp.o:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/SampleClient.cpp.o
+.PHONY : SampleClient.cpp.o
+
+SampleClient.i: SampleClient.cpp.i
+
+.PHONY : SampleClient.i
+
+# target to preprocess a source file
+SampleClient.cpp.i:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/SampleClient.cpp.i
+.PHONY : SampleClient.cpp.i
+
+SampleClient.s: SampleClient.cpp.s
+
+.PHONY : SampleClient.s
+
+# target to generate assembly for a file
+SampleClient.cpp.s:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/SampleClient.cpp.s
+.PHONY : SampleClient.cpp.s
+
 ThreadContext.o: ThreadContext.cpp.o
 
 .PHONY : ThreadContext.o
@@ -231,33 +258,6 @@ ThreadContext.cpp.s:
 	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/ThreadContext.cpp.s
 .PHONY : ThreadContext.cpp.s
 
-littleClient.o: littleClient.cpp.o
-
-.PHONY : littleClient.o
-
-# target to build an object file
-littleClient.cpp.o:
-	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/littleClient.cpp.o
-.PHONY : littleClient.cpp.o
-
-littleClient.i: littleClient.cpp.i
-
-.PHONY : littleClient.i
-
-# target to preprocess a source file
-littleClient.cpp.i:
-	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/littleClient.cpp.i
-.PHONY : littleClient.cpp.i
-
-littleClient.s: littleClient.cpp.s
-
-.PHONY : littleClient.s
-
-# target to generate assembly for a file
-littleClient.cpp.s:
-	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/littleClient.cpp.s
-.PHONY : littleClient.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -276,12 +276,12 @@ help:
 	@echo "... MapReduceFramework.o"
 	@echo "... MapReduceFramework.i"
 	@echo "... MapReduceFramework.s"
+	@echo "... SampleClient.o"
+	@echo "... SampleClient.i"
+	@echo "... SampleClient.s"
 	@echo "... ThreadContext.o"
 	@echo "... ThreadContext.i"
 	@echo "... ThreadContext.s"
-	@echo "... littleClient.o"
-	@echo "... littleClient.i"
-	@echo "... littleClient.s"
 .PHONY : help
 
 

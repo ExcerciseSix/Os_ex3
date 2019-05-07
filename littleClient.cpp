@@ -67,53 +67,53 @@ public:
 };
 
 
-int main(int argc, char** argv)
-{
-	modsumClient client;
-	InputVec inputVec;
-	OutputVec outputVec;
-
-	Vint s1(86532);
-	Vint s2(657);
-	Vint s3(5);
-	Vint s4(546);
-	Vint s5(54);
-	Vint s6(7);
-	Vint s7(8888);
-	Vint s8(86532);
-	Vint s9(657);
-	Vint s10(5);
-	Vint s11(546);
-	Vint s12(54);
-	Vint s13(7);
-	Vint s14(8888);
-
-	inputVec.push_back({nullptr, &s1});
-	inputVec.push_back({nullptr, &s2});
-	inputVec.push_back({nullptr, &s3});
-	inputVec.push_back({nullptr, &s4});
-	inputVec.push_back({nullptr, &s5});
-	inputVec.push_back({nullptr, &s6});
-	inputVec.push_back({nullptr, &s7});
-	inputVec.push_back({nullptr, &s8});
-	inputVec.push_back({nullptr, &s9});
-	inputVec.push_back({nullptr, &s10});
-	inputVec.push_back({nullptr, &s11});
-	inputVec.push_back({nullptr, &s12});
-	inputVec.push_back({nullptr, &s13});
-	inputVec.push_back({nullptr, &s14});
-
-
-	waitForJob(startMapReduceJob(client, inputVec, outputVec, 2));
-
-	for (OutputPair& pair: outputVec) {
-		bool key = ((const Kbool*)pair.first)->key;
-		int sum = ((const Vsum*)pair.second)->sum;
-		printf("The sum of numbers where mod2 == %d is %d\n", key, sum);
-		delete pair.first;
-		delete pair.second;
-	}
-	
-	return 0;
-}
+//int main(int argc, char** argv)
+//{
+//	modsumClient client;
+//	InputVec inputVec;
+//	OutputVec outputVec;
+//
+//	Vint s1(86532);
+//	Vint s2(657);
+//	Vint s3(5);
+//	Vint s4(546);
+//	Vint s5(54);
+//	Vint s6(7);
+//	Vint s7(8888);
+//	Vint s8(86532);
+//	Vint s9(657);
+//	Vint s10(5);
+//	Vint s11(546);
+//	Vint s12(54);
+//	Vint s13(7);
+//	Vint s14(8888);
+//
+//	inputVec.push_back({nullptr, &s1});
+//	inputVec.push_back({nullptr, &s2});
+//	inputVec.push_back({nullptr, &s3});
+//	inputVec.push_back({nullptr, &s4});
+//	inputVec.push_back({nullptr, &s5});
+//	inputVec.push_back({nullptr, &s6});
+//	inputVec.push_back({nullptr, &s7});
+//	inputVec.push_back({nullptr, &s8});
+//	inputVec.push_back({nullptr, &s9});
+//	inputVec.push_back({nullptr, &s10});
+//	inputVec.push_back({nullptr, &s11});
+//	inputVec.push_back({nullptr, &s12});
+//	inputVec.push_back({nullptr, &s13});
+//	inputVec.push_back({nullptr, &s14});
+//
+//
+//	waitForJob(startMapReduceJob(client, inputVec, outputVec, 4));
+//
+//	for (OutputPair& pair: outputVec) {
+//		bool key = ((const Kbool*)pair.first)->key;
+//		int sum = ((const Vsum*)pair.second)->sum;
+//		printf("The sum of numbers where mod2 == %d is %d\n", key, sum);
+//		delete pair.first;
+//		delete pair.second;
+//	}
+//
+//	return 0;
+//}
 

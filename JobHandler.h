@@ -10,17 +10,22 @@
 #include "Barrier.h"
 #include <atomic>
 #include <queue>
+#include <map>
 
 using namespace std;
 
 class JobHandler
 {
 public:
+	
 	JobHandler(const MapReduceClient & client, pthread_t *threads, vector<ThreadContext> &contexts, int numOfThreads,
 		           JobState state, const InputVec & inputVec, OutputVec & outputVec) :
 			client(client), threads(threads), contexts(contexts), numOfThreads(numOfThreads),
 			state(state), inputVec(inputVec), outputVec(outputVec){ }
 			
+	bool wasJoined = false;
+	bool end_shuffle = false;
+	int totalInputPairs = 0;
 	const MapReduceClient & client;
 	pthread_t *threads;
 	vector<ThreadContext> contexts;
@@ -28,7 +33,7 @@ public:
 	JobState state;
 	const InputVec & inputVec;
 	OutputVec & outputVec;
-	queue<IntermediateVec> shuffledVectors= {};
+	queue<IntermediateVec> shuffledVectors;
 	
 	static bool compareK2(IntermediatePair & Pair1, IntermediatePair & Pair2);
 	

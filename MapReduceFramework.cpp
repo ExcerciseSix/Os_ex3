@@ -6,6 +6,7 @@
 #include <vector>
 #include <atomic>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
@@ -17,20 +18,24 @@ JobHandle startMapReduceJob(const MapReduceClient& client, const InputVec& input
 	vector<ThreadContext> contexts;
     auto * barrier = new Barrier(multiThreadLevel);
 	JobState state = {UNDEFINED_STAGE, 0};
-	atomic<int> atomic_counter(0);
+	atomic<int> map_stage_counter(0);
 	sem_t semaphore;
 	sem_init(&semaphore, 0, 0); //TODO free semaphore
-	//TODO free JobHandler
+	
 	JobHandler* jh = new JobHandler(client, threads, contexts, multiThreadLevel, state, inputVec, outputVec);
 	for (int i = 0; i < multiThreadLevel; ++i) {
-		jh->contexts.emplace_back(i, barrier, &atomic_counter, jh, semaphore); //TODO check if context updated
+		jh->contexts.emplace_back(i, barrier, &map_stage_counter, jh, semaphore);
 	}
 	
 	for (int i = 0; i < multiThreadLevel; ++i) {
-		pthread_create(&threads[i], NULL, JobHandler::jobToExecute, &jh->contexts[i]);
+		if (pthread_create(&threads[i], NULL, JobHandler::jobToExecute, &jh->contexts[i]) != 0)
+		{
+			cerr<<"MapReduceFramework Failure: pthread_create failed"<<endl;
+			exit(1);
+		}
 	}
+	jh->state = {MAP_STAGE, 0};
 	
-	jh->state = {MAP_STAGE, 0}; //TODO check if its the place
 	return jh;
 }
 
@@ -45,29 +50,39 @@ void emit2(K2 *key, V2 *value, void *context)
 void emit3(K3 *key, V3 *value, void *context)
 {
 	ThreadContext* tc = (ThreadContext*) context;
-	pthread_mutex_lock(&tc->outputMutexVec);
 	auto jh = (JobHandler*) tc->jobHandler;
-	OutputPair pair = {key, value};
-	jh->outputVec.push_back(pair);
-	pthread_mutex_unlock(&tc->outputMutexVec);
+	pthread_mutex_lock(&tc->outputVecMutex);
+	jh->outputVec.push_back({key, value});
+	pthread_mutex_unlock(&tc->outputVecMutex);
 }
 
 void waitForJob(JobHandle job)
 {
 	//TODO what this functions do?
-	auto jh = (JobHandler*) job;
-	for (int i = 0; i < jh->numOfThreads; ++i) {
-		pthread_join(jh->threads[i], NULL);
+	JobHandler* jh = (JobHandler*) job;
+	if (!jh->wasJoined)
+	{
+		for (int i = 0; i < jh->numOfThreads; i++)
+		{
+			sem_post(&jh->contexts[i].semaphore);
+			pthread_join(jh->threads[i], NULL);
+		}
+		jh->wasJoined = true;
 	}
 }
 
 void getJobState(JobHandle job, JobState *state)
 {
 	*state = ((JobHandler*)job)->state;
-	//TODO - understand how to update state, precentage
 }
 
 void closeJobHandle(JobHandle job)
 {
-	//TODO : call wait for job if job is not done
+	JobHandler* jh = (JobHandler*) job;
+	if (!jh->wasJoined)
+	{
+		waitForJob(job);
+	}
+	delete jh->contexts[0].barrier;
+	delete jh;
 }

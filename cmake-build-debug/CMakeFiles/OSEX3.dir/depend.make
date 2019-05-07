@@ -18,13 +18,13 @@ CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o: ../MapReduceFramework.cpp
 CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o: ../MapReduceFramework.h
 CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o: ../ThreadContext.h
 
+CMakeFiles/OSEX3.dir/SampleClient.cpp.o: ../MapReduceClient.h
+CMakeFiles/OSEX3.dir/SampleClient.cpp.o: ../MapReduceFramework.h
+CMakeFiles/OSEX3.dir/SampleClient.cpp.o: ../SampleClient.cpp
+
 CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: ../Barrier.h
 CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: ../MapReduceClient.h
 CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: ../MapReduceFramework.h
 CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: ../ThreadContext.cpp
 CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: ../ThreadContext.h
-
-CMakeFiles/OSEX3.dir/littleClient.cpp.o: ../MapReduceClient.h
-CMakeFiles/OSEX3.dir/littleClient.cpp.o: ../MapReduceFramework.h
-CMakeFiles/OSEX3.dir/littleClient.cpp.o: ../littleClient.cpp
 

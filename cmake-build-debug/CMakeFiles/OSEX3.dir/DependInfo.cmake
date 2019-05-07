@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cs/usr/marynar/Documents/Os_ex3/Barrier.cpp" "/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/OSEX3.dir/Barrier.cpp.o"
-  "/cs/usr/marynar/Documents/Os_ex3/JobHandler.cpp" "/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/OSEX3.dir/JobHandler.cpp.o"
-  "/cs/usr/marynar/Documents/Os_ex3/MapReduceFramework.cpp" "/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o"
-  "/cs/usr/marynar/Documents/Os_ex3/ThreadContext.cpp" "/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/OSEX3.dir/ThreadContext.cpp.o"
-  "/cs/usr/marynar/Documents/Os_ex3/littleClient.cpp" "/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/OSEX3.dir/littleClient.cpp.o"
+  "/cs/usr/ofir.tziter/CLionProjects/OSEX3/Barrier.cpp" "/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/OSEX3.dir/Barrier.cpp.o"
+  "/cs/usr/ofir.tziter/CLionProjects/OSEX3/JobHandler.cpp" "/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/OSEX3.dir/JobHandler.cpp.o"
+  "/cs/usr/ofir.tziter/CLionProjects/OSEX3/MapReduceFramework.cpp" "/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o"
+  "/cs/usr/ofir.tziter/CLionProjects/OSEX3/SampleClient.cpp" "/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/OSEX3.dir/SampleClient.cpp.o"
+  "/cs/usr/ofir.tziter/CLionProjects/OSEX3/ThreadContext.cpp" "/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/OSEX3.dir/ThreadContext.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
