@@ -43,10 +43,10 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/ofir.tziter/CLionProjects/OSEX3
+CMAKE_SOURCE_DIR = /cs/usr/marynar/Documents/Os_ex3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/OSEX3.dir/depend.make
@@ -57,30 +57,90 @@ include CMakeFiles/OSEX3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/OSEX3.dir/flags.make
 
-CMakeFiles/OSEX3.dir/main.cpp.o: CMakeFiles/OSEX3.dir/flags.make
-CMakeFiles/OSEX3.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OSEX3.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OSEX3.dir/main.cpp.o -c /cs/usr/ofir.tziter/CLionProjects/OSEX3/main.cpp
+CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o: CMakeFiles/OSEX3.dir/flags.make
+CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o: ../MapReduceFramework.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o -c /cs/usr/marynar/Documents/Os_ex3/MapReduceFramework.cpp
 
-CMakeFiles/OSEX3.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OSEX3.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/ofir.tziter/CLionProjects/OSEX3/main.cpp > CMakeFiles/OSEX3.dir/main.cpp.i
+CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/marynar/Documents/Os_ex3/MapReduceFramework.cpp > CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.i
 
-CMakeFiles/OSEX3.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OSEX3.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/ofir.tziter/CLionProjects/OSEX3/main.cpp -o CMakeFiles/OSEX3.dir/main.cpp.s
+CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/marynar/Documents/Os_ex3/MapReduceFramework.cpp -o CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.s
+
+CMakeFiles/OSEX3.dir/Barrier.cpp.o: CMakeFiles/OSEX3.dir/flags.make
+CMakeFiles/OSEX3.dir/Barrier.cpp.o: ../Barrier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OSEX3.dir/Barrier.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OSEX3.dir/Barrier.cpp.o -c /cs/usr/marynar/Documents/Os_ex3/Barrier.cpp
+
+CMakeFiles/OSEX3.dir/Barrier.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OSEX3.dir/Barrier.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/marynar/Documents/Os_ex3/Barrier.cpp > CMakeFiles/OSEX3.dir/Barrier.cpp.i
+
+CMakeFiles/OSEX3.dir/Barrier.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OSEX3.dir/Barrier.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/marynar/Documents/Os_ex3/Barrier.cpp -o CMakeFiles/OSEX3.dir/Barrier.cpp.s
+
+CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: CMakeFiles/OSEX3.dir/flags.make
+CMakeFiles/OSEX3.dir/ThreadContext.cpp.o: ../ThreadContext.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/OSEX3.dir/ThreadContext.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OSEX3.dir/ThreadContext.cpp.o -c /cs/usr/marynar/Documents/Os_ex3/ThreadContext.cpp
+
+CMakeFiles/OSEX3.dir/ThreadContext.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OSEX3.dir/ThreadContext.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/marynar/Documents/Os_ex3/ThreadContext.cpp > CMakeFiles/OSEX3.dir/ThreadContext.cpp.i
+
+CMakeFiles/OSEX3.dir/ThreadContext.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OSEX3.dir/ThreadContext.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/marynar/Documents/Os_ex3/ThreadContext.cpp -o CMakeFiles/OSEX3.dir/ThreadContext.cpp.s
+
+CMakeFiles/OSEX3.dir/JobHandler.cpp.o: CMakeFiles/OSEX3.dir/flags.make
+CMakeFiles/OSEX3.dir/JobHandler.cpp.o: ../JobHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/OSEX3.dir/JobHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OSEX3.dir/JobHandler.cpp.o -c /cs/usr/marynar/Documents/Os_ex3/JobHandler.cpp
+
+CMakeFiles/OSEX3.dir/JobHandler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OSEX3.dir/JobHandler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/marynar/Documents/Os_ex3/JobHandler.cpp > CMakeFiles/OSEX3.dir/JobHandler.cpp.i
+
+CMakeFiles/OSEX3.dir/JobHandler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OSEX3.dir/JobHandler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/marynar/Documents/Os_ex3/JobHandler.cpp -o CMakeFiles/OSEX3.dir/JobHandler.cpp.s
+
+CMakeFiles/OSEX3.dir/littleClient.cpp.o: CMakeFiles/OSEX3.dir/flags.make
+CMakeFiles/OSEX3.dir/littleClient.cpp.o: ../littleClient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OSEX3.dir/littleClient.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/OSEX3.dir/littleClient.cpp.o -c /cs/usr/marynar/Documents/Os_ex3/littleClient.cpp
+
+CMakeFiles/OSEX3.dir/littleClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OSEX3.dir/littleClient.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cs/usr/marynar/Documents/Os_ex3/littleClient.cpp > CMakeFiles/OSEX3.dir/littleClient.cpp.i
+
+CMakeFiles/OSEX3.dir/littleClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OSEX3.dir/littleClient.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cs/usr/marynar/Documents/Os_ex3/littleClient.cpp -o CMakeFiles/OSEX3.dir/littleClient.cpp.s
 
 # Object files for target OSEX3
 OSEX3_OBJECTS = \
-"CMakeFiles/OSEX3.dir/main.cpp.o"
+"CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o" \
+"CMakeFiles/OSEX3.dir/Barrier.cpp.o" \
+"CMakeFiles/OSEX3.dir/ThreadContext.cpp.o" \
+"CMakeFiles/OSEX3.dir/JobHandler.cpp.o" \
+"CMakeFiles/OSEX3.dir/littleClient.cpp.o"
 
 # External object files for target OSEX3
 OSEX3_EXTERNAL_OBJECTS =
 
-OSEX3: CMakeFiles/OSEX3.dir/main.cpp.o
+OSEX3: CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o
+OSEX3: CMakeFiles/OSEX3.dir/Barrier.cpp.o
+OSEX3: CMakeFiles/OSEX3.dir/ThreadContext.cpp.o
+OSEX3: CMakeFiles/OSEX3.dir/JobHandler.cpp.o
+OSEX3: CMakeFiles/OSEX3.dir/littleClient.cpp.o
 OSEX3: CMakeFiles/OSEX3.dir/build.make
 OSEX3: CMakeFiles/OSEX3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable OSEX3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable OSEX3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OSEX3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +153,6 @@ CMakeFiles/OSEX3.dir/clean:
 .PHONY : CMakeFiles/OSEX3.dir/clean
 
 CMakeFiles/OSEX3.dir/depend:
-	cd /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cs/usr/ofir.tziter/CLionProjects/OSEX3 /cs/usr/ofir.tziter/CLionProjects/OSEX3 /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/OSEX3.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cs/usr/marynar/Documents/Os_ex3 /cs/usr/marynar/Documents/Os_ex3 /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/OSEX3.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/OSEX3.dir/depend
 

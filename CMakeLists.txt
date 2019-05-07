@@ -3,4 +3,6 @@ project(OSEX3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(OSEX3 MapReduceFramework.cpp MapReduceFramework.h Barrier.cpp Barrier.h SampleClient.cpp)
+add_executable(OSEX3 MapReduceFramework.cpp MapReduceFramework.h Barrier.cpp Barrier.h ThreadContext.h
+        ThreadContext.cpp JobHandler.h JobHandler.cpp littleClient.cpp)
+SET(CMAKE_CXX_FLAGS -pthread)

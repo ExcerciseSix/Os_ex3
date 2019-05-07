@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/OSEX3.dir/main.cpp.o"
+  "CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o"
+  "CMakeFiles/OSEX3.dir/Barrier.cpp.o"
+  "CMakeFiles/OSEX3.dir/ThreadContext.cpp.o"
+  "CMakeFiles/OSEX3.dir/JobHandler.cpp.o"
+  "CMakeFiles/OSEX3.dir/littleClient.cpp.o"
   "OSEX3.pdb"
   "OSEX3"
 )

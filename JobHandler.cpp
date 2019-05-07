@@ -26,11 +26,11 @@ void* JobHandler::jobToExecute(void* context)
 		
 	}
 	sort(tc->mapResultVector.begin(), tc->mapResultVector.end(), &JobHandler::compareK2);
-	
-	cout<< tc->threadID << " thread id " << endl;
+
 	tc->barrier->barrier();
 	
 	jh->state = {REDUCE_STAGE, 0};
+
 	if (tc->threadID == 0) {
 		jh->shuffle();
 	}

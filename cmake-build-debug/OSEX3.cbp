@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug"/>
+				<Option working_dir="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug"/>
+				<Option working_dir="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug"/>
+				<Option working_dir="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OSEX3">
-				<Option output="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/OSEX3" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug"/>
+				<Option output="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/OSEX3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OSEX3"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OSEX3"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="OSEX3/fast">
-				<Option output="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/OSEX3" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug"/>
+				<Option output="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/OSEX3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,17 +77,41 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OSEX3/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 OSEX3/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cs/usr/ofir.tziter/CLionProjects/OSEX3/main.cpp">
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/Barrier.cpp">
 			<Option target="OSEX3"/>
 		</Unit>
-		<Unit filename="/cs/usr/ofir.tziter/CLionProjects/OSEX3/CMakeLists.txt">
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/Barrier.h">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/JobHandler.cpp">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/JobHandler.h">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/MapReduceFramework.cpp">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/MapReduceFramework.h">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/ThreadContext.cpp">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/ThreadContext.h">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/littleClient.cpp">
+			<Option target="OSEX3"/>
+		</Unit>
+		<Unit filename="/cs/usr/marynar/Documents/Os_ex3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

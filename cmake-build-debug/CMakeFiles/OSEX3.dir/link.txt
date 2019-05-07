@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/OSEX3.dir/main.cpp.o  -o OSEX3 
+/usr/bin/c++  -pthread -g   CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o CMakeFiles/OSEX3.dir/Barrier.cpp.o CMakeFiles/OSEX3.dir/ThreadContext.cpp.o CMakeFiles/OSEX3.dir/JobHandler.cpp.o CMakeFiles/OSEX3.dir/littleClient.cpp.o  -o OSEX3 

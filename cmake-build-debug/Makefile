@@ -48,10 +48,10 @@ RM = /usr/local/APP/jetbrains/clion/2018.2.1/bin/cmake/linux/bin/cmake -E remove
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cs/usr/ofir.tziter/CLionProjects/OSEX3
+CMAKE_SOURCE_DIR = /cs/usr/marynar/Documents/Os_ex3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug
+CMAKE_BINARY_DIR = /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,140 @@ OSEX3/fast:
 	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/build
 .PHONY : OSEX3/fast
 
-main.o: main.cpp.o
+Barrier.o: Barrier.cpp.o
 
-.PHONY : main.o
+.PHONY : Barrier.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/main.cpp.o
-.PHONY : main.cpp.o
+Barrier.cpp.o:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/Barrier.cpp.o
+.PHONY : Barrier.cpp.o
 
-main.i: main.cpp.i
+Barrier.i: Barrier.cpp.i
 
-.PHONY : main.i
+.PHONY : Barrier.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/main.cpp.i
-.PHONY : main.cpp.i
+Barrier.cpp.i:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/Barrier.cpp.i
+.PHONY : Barrier.cpp.i
 
-main.s: main.cpp.s
+Barrier.s: Barrier.cpp.s
 
-.PHONY : main.s
+.PHONY : Barrier.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/main.cpp.s
-.PHONY : main.cpp.s
+Barrier.cpp.s:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/Barrier.cpp.s
+.PHONY : Barrier.cpp.s
+
+JobHandler.o: JobHandler.cpp.o
+
+.PHONY : JobHandler.o
+
+# target to build an object file
+JobHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/JobHandler.cpp.o
+.PHONY : JobHandler.cpp.o
+
+JobHandler.i: JobHandler.cpp.i
+
+.PHONY : JobHandler.i
+
+# target to preprocess a source file
+JobHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/JobHandler.cpp.i
+.PHONY : JobHandler.cpp.i
+
+JobHandler.s: JobHandler.cpp.s
+
+.PHONY : JobHandler.s
+
+# target to generate assembly for a file
+JobHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/JobHandler.cpp.s
+.PHONY : JobHandler.cpp.s
+
+MapReduceFramework.o: MapReduceFramework.cpp.o
+
+.PHONY : MapReduceFramework.o
+
+# target to build an object file
+MapReduceFramework.cpp.o:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.o
+.PHONY : MapReduceFramework.cpp.o
+
+MapReduceFramework.i: MapReduceFramework.cpp.i
+
+.PHONY : MapReduceFramework.i
+
+# target to preprocess a source file
+MapReduceFramework.cpp.i:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.i
+.PHONY : MapReduceFramework.cpp.i
+
+MapReduceFramework.s: MapReduceFramework.cpp.s
+
+.PHONY : MapReduceFramework.s
+
+# target to generate assembly for a file
+MapReduceFramework.cpp.s:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/MapReduceFramework.cpp.s
+.PHONY : MapReduceFramework.cpp.s
+
+ThreadContext.o: ThreadContext.cpp.o
+
+.PHONY : ThreadContext.o
+
+# target to build an object file
+ThreadContext.cpp.o:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/ThreadContext.cpp.o
+.PHONY : ThreadContext.cpp.o
+
+ThreadContext.i: ThreadContext.cpp.i
+
+.PHONY : ThreadContext.i
+
+# target to preprocess a source file
+ThreadContext.cpp.i:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/ThreadContext.cpp.i
+.PHONY : ThreadContext.cpp.i
+
+ThreadContext.s: ThreadContext.cpp.s
+
+.PHONY : ThreadContext.s
+
+# target to generate assembly for a file
+ThreadContext.cpp.s:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/ThreadContext.cpp.s
+.PHONY : ThreadContext.cpp.s
+
+littleClient.o: littleClient.cpp.o
+
+.PHONY : littleClient.o
+
+# target to build an object file
+littleClient.cpp.o:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/littleClient.cpp.o
+.PHONY : littleClient.cpp.o
+
+littleClient.i: littleClient.cpp.i
+
+.PHONY : littleClient.i
+
+# target to preprocess a source file
+littleClient.cpp.i:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/littleClient.cpp.i
+.PHONY : littleClient.cpp.i
+
+littleClient.s: littleClient.cpp.s
+
+.PHONY : littleClient.s
+
+# target to generate assembly for a file
+littleClient.cpp.s:
+	$(MAKE) -f CMakeFiles/OSEX3.dir/build.make CMakeFiles/OSEX3.dir/littleClient.cpp.s
+.PHONY : littleClient.cpp.s
 
 # Help Target
 help:
@@ -159,9 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... OSEX3"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Barrier.o"
+	@echo "... Barrier.i"
+	@echo "... Barrier.s"
+	@echo "... JobHandler.o"
+	@echo "... JobHandler.i"
+	@echo "... JobHandler.s"
+	@echo "... MapReduceFramework.o"
+	@echo "... MapReduceFramework.i"
+	@echo "... MapReduceFramework.s"
+	@echo "... ThreadContext.o"
+	@echo "... ThreadContext.i"
+	@echo "... ThreadContext.s"
+	@echo "... littleClient.o"
+	@echo "... littleClient.i"
+	@echo "... littleClient.s"
 .PHONY : help
 
 

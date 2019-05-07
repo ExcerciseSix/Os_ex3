@@ -15,15 +15,15 @@ JobHandle startMapReduceJob(const MapReduceClient& client, const InputVec& input
 	
 	pthread_t threads[multiThreadLevel];
 	vector<ThreadContext> contexts;
-	Barrier barrier(multiThreadLevel);
-	JobState state ={UNDEFINED_STAGE, 0};
+    auto * barrier = new Barrier(multiThreadLevel);
+	JobState state = {UNDEFINED_STAGE, 0};
 	atomic<int> atomic_counter(0);
 	sem_t semaphore;
 	sem_init(&semaphore, 0, 0); //TODO free semaphore
 	//TODO free JobHandler
 	JobHandler* jh = new JobHandler(client, threads, contexts, multiThreadLevel, state, inputVec, outputVec);
 	for (int i = 0; i < multiThreadLevel; ++i) {
-		jh->contexts.push_back(ThreadContext(i, &barrier, &atomic_counter, jh, semaphore)); //TODO check if contaxt updated
+		jh->contexts.emplace_back(i, barrier, &atomic_counter, jh, semaphore); //TODO check if context updated
 	}
 	
 	for (int i = 0; i < multiThreadLevel; ++i) {

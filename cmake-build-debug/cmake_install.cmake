@@ -1,4 +1,4 @@
-# Install script for directory: /cs/usr/ofir.tziter/CLionProjects/OSEX3
+# Install script for directory: /cs/usr/marynar/Documents/Os_ex3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/cs/usr/ofir.tziter/CLionProjects/OSEX3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/cs/usr/marynar/Documents/Os_ex3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
