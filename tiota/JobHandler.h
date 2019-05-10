@@ -5,9 +5,9 @@
 #ifndef OSEX3_JOBHANDLER_H
 #define OSEX3_JOBHANDLER_H
 
-#include "MapReduceFramework.h"
+#include "../MapReduceFramework.h"
 #include "ThreadContext.h"
-#include "Barrier.h"
+#include "../Barrier.h"
 #include <atomic>
 #include <queue>
 #include <map>

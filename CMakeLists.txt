@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
-project(OSEX3)
+project(ex3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(OSEX3 MapReduceFramework.cpp MapReduceFramework.h Barrier.cpp Barrier.h ThreadContext.h
-        ThreadContext.cpp JobHandler.h JobHandler.cpp SampleClient.cpp)
+add_executable(ex3 MapReduceFramework.h MapREduceFramework.cpp Barrier.cpp Barrier.h SampleClient.cpp )
 SET(CMAKE_CXX_FLAGS -pthread)
