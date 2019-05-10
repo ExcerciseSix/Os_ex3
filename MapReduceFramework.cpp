@@ -65,6 +65,7 @@ public:
 	pthread_mutex_t reduceQueueMutex;
 	pthread_mutex_t stateMutex;
 	pthread_mutex_t semaphoreMutex;
+	pthread_mutex_t joinMutex;
 };
 
 JobHandler::JobHandler(const MapReduceClient &client, int numOfThreads, const InputVec &inputVec, OutputVec &outputVec):
@@ -74,7 +75,8 @@ JobHandler::JobHandler(const MapReduceClient &client, int numOfThreads, const In
 		wasJoined(false), shuffleFinished(false), semaphoreRealised(false), inputPairsCounter(0),
 		mapStageCounter(0), reduceStageCounter(0), barrier(numOfThreads), shuffleMutex(PTHREAD_MUTEX_INITIALIZER),
 		outputVecMutex(PTHREAD_MUTEX_INITIALIZER), reduceQueueMutex(PTHREAD_MUTEX_INITIALIZER),
-		stateMutex(PTHREAD_MUTEX_INITIALIZER), semaphoreMutex(PTHREAD_MUTEX_INITIALIZER)
+		stateMutex(PTHREAD_MUTEX_INITIALIZER), semaphoreMutex(PTHREAD_MUTEX_INITIALIZER),
+		joinMutex(PTHREAD_MUTEX_INITIALIZER)
 {
 	if (sem_init(&semaphore, 0, 0))
 	{
@@ -90,6 +92,7 @@ void shuffleStage(ThreadContext *tc);
 void reduceStage(ThreadContext *tc);
 void freeSemaphore(ThreadContext *tc);
 void generateK2Vector(ThreadContext *tc, int maxKeyIndex);
+//void updateMapState(ThreadContext *tc, int countMapped, int inputSize);
 bool isResultVectorsEmpty(ThreadContext *tc);
 void error(string const &error);
 
@@ -114,24 +117,26 @@ void* jobToExecute(void* threadContext)
 	}
 
 	freeSemaphore(tc);
+	waitForJob(tc->jobHandler);
 	return nullptr;
 }
 
 bool equalK2(IntermediatePair & Pair1, IntermediatePair & Pair2)
 {
-	return (*Pair1.first < *Pair2.first) && (*Pair2.first < *Pair1.first);
+	return !(*Pair1.first < *Pair2.first) && !(*Pair2.first < *Pair1.first);
 }
 
 void mapStage(ThreadContext *tc)
 {
-	int old_value = (tc->jobHandler->mapStageCounter)++;
 	// all threads use map on elements form input vector
-	while(old_value < (*tc->jobHandler->inputVec).size())
+	int inputSize = (int) tc->jobHandler->inputVec->size();
+	int oldValue = (tc->jobHandler->mapStageCounter)++;
+	while(oldValue < inputSize)
 	{
-		cout << tc->threadID << old_value << endl;
-		auto inputPair = (*tc->jobHandler->inputVec)[old_value];
+		auto inputPair = (*tc->jobHandler->inputVec)[oldValue];
 		tc->jobHandler->client->map(inputPair.first, inputPair.second, tc);
-		old_value = (tc->jobHandler->mapStageCounter)++;
+//		updateMapState(tc, tc->jobHandler->mapStageCounter - tc->jobHandler->numOfThreads, inputSize); //TODO an option for state update on the run
+		oldValue = (tc->jobHandler->mapStageCounter)++;
 	}
 	tc->jobHandler->barrier.barrier();
 	sort(tc->mapResultVector.begin(), tc->mapResultVector.end(), comparator<IntermediatePair>());
@@ -144,7 +149,10 @@ void shuffleStage(ThreadContext *tc)
 	{
 		int firstNotEmptyIndex = 0;
 		while (tc->jobHandler->contexts[firstNotEmptyIndex].mapResultVector.empty()){
-			++firstNotEmptyIndex;
+			if (firstNotEmptyIndex + 1 < tc->jobHandler->numOfThreads)
+			{
+				++firstNotEmptyIndex;
+			}
 		}
 		generateK2Vector(tc, firstNotEmptyIndex);
 		if (sem_post(&tc->jobHandler->semaphore))
@@ -197,7 +205,6 @@ void freeSemaphore(ThreadContext *tc)
 
 void generateK2Vector(ThreadContext *tc, int maxKeyIndex)
 {
-//    IntermediateVec shuffledVector;
 	for(int i = maxKeyIndex; i < tc->jobHandler->numOfThreads; ++i){
 		if (!tc->jobHandler->contexts[i].mapResultVector.empty())
 		{
@@ -208,7 +215,6 @@ void generateK2Vector(ThreadContext *tc, int maxKeyIndex)
 			}
 		}
 	}
-
 	auto shuffledVector = new IntermediateVec; //the maxKeyIndex lead the way  //TODO maybe should be deleted
 	shuffledVector->push_back(tc->jobHandler->contexts[maxKeyIndex].mapResultVector.back());
 	tc->jobHandler->contexts[maxKeyIndex].mapResultVector.pop_back();
@@ -222,6 +228,11 @@ void generateK2Vector(ThreadContext *tc, int maxKeyIndex)
 			{
 				shuffledVector->push_back(tc->jobHandler->contexts[i].mapResultVector.back());
 				tc->jobHandler->contexts[i].mapResultVector.pop_back();
+				if (tc->jobHandler->contexts[i].mapResultVector.empty())
+				{
+					break;
+				}
+				pair = tc->jobHandler->contexts[i].mapResultVector.back();
 			}
 		}
 	}
@@ -233,6 +244,19 @@ void generateK2Vector(ThreadContext *tc, int maxKeyIndex)
 	if (pthread_mutex_unlock(&(tc->jobHandler->shuffleMutex)))
 	{
 		error("pthread_mutex_unlock error in adding shuffled vector to all shuffled vectors");
+	}
+}
+
+void updateMapState(ThreadContext *tc, int countMapped, int inputSize)
+{
+	if (pthread_mutex_lock(&(tc->jobHandler->stateMutex))) //TODO maybe remove this hole func
+	{
+		error("update map state percentage failed ");
+	}
+	tc->jobHandler->state.percentage = (float) countMapped * 100 / (float) inputSize;
+	if (pthread_mutex_unlock(&(tc->jobHandler->stateMutex)))
+	{
+		error("update map state percentage failed ");
 	}
 }
 
@@ -291,16 +315,26 @@ void emit3(K3 *key, V3 *value, void *context)
 void waitForJob(JobHandle job)
 {
 	auto jh = static_cast<JobHandler*> (job);
+	if (pthread_mutex_lock(&(jh->joinMutex))) //TODO maybe remove this hole func
+	{
+		error("pthread_mutex_lock in pthread_join mutex ");
+	}
 	if (!jh->wasJoined)
 	{
-		for (int i = 0; i < jh->numOfThreads; i++)
+		for (int i = 1; i < jh->numOfThreads; ++i)
 		{
-			pthread_join(jh->threads[i], nullptr);
+			if (pthread_join(jh->threads[i], nullptr))
+			{
+				error("pthread_job returned an error");
+			}
 		}
 		jh->wasJoined = true;
 	}
+	if (pthread_mutex_unlock(&(jh->joinMutex)))
+	{
+		error("pthread_mutex_unlock in pthread_join mutex ");
+	}
 }
-
 
 void getJobState(JobHandle job, JobState *state)
 {
@@ -311,12 +345,13 @@ void getJobState(JobHandle job, JobState *state)
 	}
 	if (jh->state.stage == MAP_STAGE)
 	{
-//		cout << "mapcounter " << jh->mapStageCounter << "input size: " << jh->inputVec->size() << endl;
-		jh->state.percentage = ((jh->mapStageCounter) / jh->inputVec->size()) * 100;
+		int mappedVectors = jh->mapStageCounter - jh->numOfThreads;
+		if (mappedVectors < 0) mappedVectors = 0;
+		jh->state.percentage = (float)(mappedVectors)* 100 / (float) jh->inputVec->size(); //TODO maybe the inputPair counter is not a solution here
 	}
 	if (jh->state.stage == REDUCE_STAGE)
 	{
-		jh->state.percentage = ((jh->reduceStageCounter) / jh->inputPairsCounter) * 100; //TODO maybe the inputPair counter is not a solution here
+		jh->state.percentage = ((float)(jh->reduceStageCounter) *100/ (float) jh->inputPairsCounter); //TODO maybe the inputPair counter is not a solution here
 	}
 	if (pthread_mutex_unlock(&(jh->stateMutex)))
 	{
@@ -324,7 +359,6 @@ void getJobState(JobHandle job, JobState *state)
 	}
 	*state = jh->state;
 }
-
 
 void closeJobHandle(JobHandle job)
 {
