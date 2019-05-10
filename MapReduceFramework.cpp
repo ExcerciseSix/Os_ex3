@@ -117,7 +117,6 @@ void* jobToExecute(void* threadContext)
 	}
 
 	freeSemaphore(tc);
-	waitForJob(tc->jobHandler);
 	return nullptr;
 }
 
@@ -362,7 +361,10 @@ void getJobState(JobHandle job, JobState *state)
 
 void closeJobHandle(JobHandle job)
 {
-	waitForJob(job);
 	auto jh = static_cast<JobHandler*> (job);
+	if (!(jh->state.stage == REDUCE_STAGE && jh->state.percentage >= 100))
+	{
+		waitForJob(job);
+	}
 	delete jh;
 }
