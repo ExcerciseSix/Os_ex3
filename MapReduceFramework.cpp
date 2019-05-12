@@ -6,7 +6,9 @@
 #include <algorithm>
 #include <queue>
 #include <iostream>
+#include <string.h>
 #include "semaphore.h"
+#include <errno.h>
 
 
 using namespace std;
@@ -42,8 +44,9 @@ class JobHandler
 public:
 
 	JobHandler(const MapReduceClient &client, int numOfThreads, const InputVec &inputVec, OutputVec &outputVec);
+	~JobHandler();
 	const MapReduceClient *client;
-	vector<pthread_t> threads;
+	pthread_t *threads;
 	vector<ThreadContext> contexts;
 	int numOfThreads;
 	const InputVec *inputVec;
@@ -65,11 +68,11 @@ public:
 	pthread_mutex_t reduceQueueMutex;
 	pthread_mutex_t stateMutex;
 	pthread_mutex_t semaphoreMutex;
-	pthread_mutex_t joinMutex;
+	pthread_mutex_t joinMutex; //TODO earase
 };
 
 JobHandler::JobHandler(const MapReduceClient &client, int numOfThreads, const InputVec &inputVec, OutputVec &outputVec):
-		client(&client), threads((unsigned long)numOfThreads),
+		client(&client), threads((pthread_t *) malloc(sizeof(pthread_t) * numOfThreads)),
 		numOfThreads(numOfThreads), inputVec(&inputVec), outputVec(&outputVec),
 		contexts((unsigned long)numOfThreads), state({UNDEFINED_STAGE, 0}),
 		wasJoined(false), shuffleFinished(false), semaphoreRealised(false), inputPairsCounter(0),
@@ -82,6 +85,11 @@ JobHandler::JobHandler(const MapReduceClient &client, int numOfThreads, const In
 	{
 		cout << "initializing of the semaphore failed" << endl;
 	}
+}
+
+JobHandler::~JobHandler()
+{
+	free(threads);
 }
 
 
@@ -235,10 +243,10 @@ void generateK2Vector(ThreadContext *tc, int maxKeyIndex)
 			}
 		}
 	}
-	if (pthread_mutex_lock(&(tc->jobHandler->shuffleMutex)))
-	{
-		error("pthread_mutex_lock error in adding shuffled vector to all shuffled vectors");
-	}
+//	if (pthread_mutex_lock(&(tc->jobHandler->shuffleMutex)))
+//	{
+//		error("pthread_mutex_lock error in adding shuffled vector to all shuffled vectors");
+//	}
 	tc->jobHandler->shuffledVectors.push(shuffledVector); //TODO hope no valgrind errors
 	if (pthread_mutex_unlock(&(tc->jobHandler->shuffleMutex)))
 	{
@@ -280,7 +288,7 @@ JobHandle startMapReduceJob(const MapReduceClient& client, const InputVec& input
 	for (int i = 0; i < multiThreadLevel; ++i) {
 		jh->contexts[i] = ThreadContext(i, jh);
 
-		if (pthread_create(&(jh->threads[i]), nullptr, jobToExecute, &(jh->contexts[i])))
+		if (pthread_create(&jh->threads[i], nullptr, jobToExecute, &(jh->contexts[i])))
 		{
 			error("pthread_create failed");
 		}
@@ -314,14 +322,15 @@ void emit3(K3 *key, V3 *value, void *context)
 void waitForJob(JobHandle job)
 {
 	auto jh = static_cast<JobHandler*> (job);
-	if (pthread_mutex_lock(&(jh->joinMutex))) //TODO maybe remove this hole func
-	{
-		error("pthread_mutex_lock in pthread_join mutex ");
-	}
+//	if (pthread_mutex_lock(&(jh->joinMutex))) //TODO maybe remove this whole func
+//	{
+//		error("pthread_mutex_lock in pthread_join mutex ");
+//	}
 	if (!jh->wasJoined)
 	{
 		for (int i = 1; i < jh->numOfThreads; ++i)
 		{
+			printf("errno: %d\n", errno);
 			if (pthread_join(jh->threads[i], nullptr))
 			{
 				error("pthread_job returned an error");
@@ -329,10 +338,10 @@ void waitForJob(JobHandle job)
 		}
 		jh->wasJoined = true;
 	}
-	if (pthread_mutex_unlock(&(jh->joinMutex)))
-	{
-		error("pthread_mutex_unlock in pthread_join mutex ");
-	}
+//	if (pthread_mutex_unlock(&(jh->joinMutex)))
+//	{
+//		error("pthread_mutex_unlock in pthread_join mutex ");
+//	}
 }
 
 void getJobState(JobHandle job, JobState *state)
